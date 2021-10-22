@@ -20,7 +20,7 @@ class Morse(AbstractCipher):
 
     @staticmethod
     def takes_key() -> bool:
-        return True
+        return False
 
     @staticmethod
     def encode(input: str, key=None) -> str:
