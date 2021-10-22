@@ -1,5 +1,5 @@
-import morse
+from ciphers.morse import Morse
 
 CIPHERS = {
-    "morse": morse.Morse
+    "morse": Morse
 }

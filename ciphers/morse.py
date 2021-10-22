@@ -1,4 +1,4 @@
-from abstractcipher import AbstractCipher
+from ciphers.abstractcipher import AbstractCipher
 
 class Morse(AbstractCipher):
     MAP = {
