@@ -29,6 +29,10 @@ def main():
     if cipher.takes_key():
         if not args['key']:
             raise Exception('Key must be provided for this technique.')
+        else:
+            key = args['key']
+    else:
+        key = None
 
     source = args['input']
     if is_file(source):
@@ -42,17 +46,9 @@ def main():
         input = source
 
     if args['encode']:
-        if cipher.takes_key():
-            key = args['key']
-            output = cipher.encode(input, key)
-        else:
-            output = cipher.encode(input)
+        output = cipher.encode(input, key)
     else:
-        if cipher.takes_key():
-            key = args['key']
-            output = cipher.decode(input, key)
-        else:
-            output = cipher.decode(input)
+        output = cipher.decode(input, key)
 
     destination = args['output']
     if destination:
