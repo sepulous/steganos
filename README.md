@@ -1,5 +1,5 @@
 # Steganos
-Steganos is a basic command-line based steganography toolkit written in vanilla Python.
+Steganos is a command-line based toolkit written in vanilla Python that support various basic steganographic and cryptographic data hiding techniques.
 
 # Techniques to Support
 * Text steganography
