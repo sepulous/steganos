@@ -6,10 +6,8 @@ def is_file(string: str) -> bool:
     string = string.strip()
     return string.find(' ') == -1 and string.find('.') > 0
 
-
 def file_exists(filename: str) -> bool:
     return Path(filename).is_file()
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -55,7 +53,6 @@ def main():
                 file.write(output)
         else:
             print(f'Invalid output destination: "{destination}"')
-
 
 if __name__ == "__main__":
     main()
