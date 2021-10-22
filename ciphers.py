@@ -13,33 +13,39 @@ class Morse:
         '.': '.-.-.-', ',': '--..--', '?': '..--..',  '\'': '.----.',
         '!': '-.-.--', '(': '-.--.',  ')': '-.--.-',  '&': '.-...',
         ':': '---...', ';': '-.-.-.', '=': '-...-',   '+': '.-.-.',
-        '-': '-....-', '_': '..--.-', '\"': '.-..-.', '$': '...-..-'
+        '-': '-....-', '_': '..--.-', '\"': '.-..-.', '$': '...-..-',
+        ' ': ' ', '\n': '\n'
     }
 
     @staticmethod
     def encode(input: str) -> str:
-        result = ''
+        encoded = []
         for char in input:
             if char == ' ':
-                result += ' '
+                encoded.append(char)
             else:
-                result += Morse.MAP[char.upper()] + ' '
-        return result
+                encoded.append(Morse.MAP[char.upper()])
+        return ' '.join(encoded)
 
     @staticmethod
     def decode(input: str) -> str:
-        result = ''
-        groups = input.split(' ')
+        decoded = []
+        groups = input.split(' ') # Note: Each group represents a single character
+        last_group = None
         for group in groups:
             found = False
             for letter, morse in zip(Morse.MAP.keys(), Morse.MAP.values()):
                 if group == morse:
-                    result += letter + ' '
+                    decoded.append(letter)
                     found = True
-            if not found:
-                result += '? '
-        return result
+                    last_group = group
+            if not found and group == '':
+                if not last_group == '':
+                    decoded.append(' ')
+                    last_group = group
+        return ''.join(decoded)
 
+# '' === ' '
 
 CIPHERS = {
     'morse': Morse
