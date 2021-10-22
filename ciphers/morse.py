@@ -19,7 +19,11 @@ class Morse(AbstractCipher):
     }
 
     @staticmethod
-    def encode(input: str) -> str:
+    def takes_key() -> bool:
+        return True
+
+    @staticmethod
+    def encode(input: str, key=None) -> str:
         encoded = []
         for char in input:
             if char == ' ':
@@ -29,7 +33,7 @@ class Morse(AbstractCipher):
         return ' '.join(encoded)
 
     @staticmethod
-    def decode(input: str) -> str:
+    def decode(input: str, key=None) -> str:
         decoded = []
         groups = input.split(' ') # Note: Each group represents a single character
         last_group = None

@@ -3,9 +3,13 @@ from abc import ABC, abstractstaticmethod
 
 class AbstractCipher(ABC):
     @abstractstaticmethod
-    def encode(input):
+    def takes_key() -> bool:
         pass
 
     @abstractstaticmethod
-    def decode(input):
+    def encode(input, key=None):
+        pass
+
+    @abstractstaticmethod
+    def decode(input, key=None):
         pass
