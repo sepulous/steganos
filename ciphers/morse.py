@@ -1,5 +1,6 @@
+from abstractcipher import AbstractCipher
 
-class Morse:
+class Morse(AbstractCipher):
     MAP = {
         'A': '.-',     'B': '-...',   'C': '-.-.',    'D': '-..',
         'E': '.',      'F': '..-.',   'G': '--.',     'H': '....',
@@ -44,9 +45,3 @@ class Morse:
                     decoded.append(' ')
                     last_group = group
         return ''.join(decoded)
-
-# '' === ' '
-
-CIPHERS = {
-    'morse': Morse
-}

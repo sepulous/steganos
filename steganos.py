@@ -1,7 +1,6 @@
 import argparse
 from pathlib import Path
-from ciphers import CIPHERS
-
+from ciphers.ciphers import CIPHERS
 
 def is_file(string: str) -> bool:
     string = string.strip()
