@@ -30,7 +30,7 @@ def main():
         if not args['key']:
             raise Exception('Key must be provided for this technique.')
         else:
-            key = cipher.key_type(args['key']) # Convert entered key to expected type for cipher
+            key = cipher.key_type()(args['key']) # Convert entered key to expected type for cipher
     else:
         key = None
 
