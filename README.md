@@ -4,7 +4,7 @@ Steganos is a command-line based toolkit written in vanilla Python that support 
 # Techniques to Support
 * Text techniques
     - ~~Morse code~~
-    - ~~Caesar cipher~~, ROT-13, Vigenère
+    - ~~Caesar cipher~~, ~~ROT-13~~, Vigenère
     - Null cipher
     - 1337 speak
     - Typo steganography
