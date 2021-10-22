@@ -3,8 +3,8 @@ from ciphers.caesar import Caesar
 
 class Rot13(AbstractCipher):
     @staticmethod
-    def takes_key() -> bool:
-        return False
+    def key_type() -> type:
+        return None
 
     @staticmethod
     def encode(string: str, key=None) -> str:

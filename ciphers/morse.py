@@ -19,8 +19,8 @@ class Morse(AbstractCipher):
     }
 
     @staticmethod
-    def takes_key() -> bool:
-        return False
+    def key_type() -> type:
+        return None
 
     @staticmethod
     def encode(input: str, key=None) -> str:

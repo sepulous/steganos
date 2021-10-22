@@ -3,7 +3,7 @@ from abc import ABC, abstractstaticmethod
 
 class AbstractCipher(ABC):
     @abstractstaticmethod
-    def takes_key() -> bool:
+    def key_type() -> type:
         pass
 
     @abstractstaticmethod

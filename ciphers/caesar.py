@@ -3,8 +3,8 @@ from string import ascii_letters
 
 class Caesar(AbstractCipher):
     @staticmethod
-    def takes_key() -> bool:
-        return True
+    def key_type() -> type:
+        return int
 
     @staticmethod
     def encode(input: str, shift: int):

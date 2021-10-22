@@ -16,7 +16,7 @@ def main():
     ciphers = list(CIPHERS.keys())
     cipher_group.add_argument('--encode', type=str, nargs='?', choices=ciphers, help='Encode using specified cipher',)
     cipher_group.add_argument('--decode', type=str, nargs='?', choices=ciphers, help='Decode using specified cipher',)
-    parser.add_argument('-k', '--key', type=any)
+    parser.add_argument('-k', '--key', type=str)
     parser.add_argument('-i', '--input', type=str)
     parser.add_argument('-o', '--output', type=str, required=False)
     args = vars(parser.parse_args())
@@ -26,11 +26,11 @@ def main():
     else:
         cipher: AbstractCipher = CIPHERS[args['decode']]
 
-    if cipher.takes_key():
+    if cipher.key_type():
         if not args['key']:
             raise Exception('Key must be provided for this technique.')
         else:
-            key = args['key']
+            key = cipher.key_type(args['key']) # Convert entered key to expected type for cipher
     else:
         key = None
 
